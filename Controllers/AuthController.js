@@ -5,7 +5,9 @@ const connectDB = require('../Models/db');
 
 const signup = async (req, res) => {
     try {
-        const { name, email, password, role } = req.body;   
+        await connectDB();
+
+        const { name, email, password, role } = req.body;
 
         const user = await UserModel.findOne({ email });
 
