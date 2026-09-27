@@ -2,17 +2,28 @@ const mongoose = require('mongoose');
 
 const mongo_url = process.env.MONGO_CONN;
 
-console.log("MONGO_CONN exists:", !!mongo_url);
+const connectDB = async () => {
+    try {
+        if (!mongo_url) {
+            throw new Error('MONGO_CONN environment variable is missing');
+        }
 
-mongoose.connect(mongo_url, {
-    serverSelectionTimeoutMS: 10000
-})
-.then(() => {
-    console.log("MongoDB Connected...");
-})
-.catch((err) => {
-    console.error("MongoDB Connection Error:", err);
-});
+        if (mongoose.connection.readyState === 1) {
+            return;
+        }
+
+        await mongoose.connect(mongo_url, {
+            serverSelectionTimeoutMS: 10000
+        });
+
+        console.log('MongoDB Connected...');
+    } catch (err) {
+        console.error('MongoDB Connection Error:', err.message);
+        throw err;
+    }
+};
+
+module.exports = connectDB;
     // const mongoose = require('mongoose');
 
     // const mongo_url = process.env.MONGO_CONN;

@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const UserModel = require("../Models/User")
 const jwt = require('jsonwebtoken')
+const connectDB = require('../Models/db');
 
 const signup = async (req, res) => {
     try {
@@ -42,8 +43,10 @@ const signup = async (req, res) => {
 }
 
 
-const login = async (req, res) => {
+    const login = async (req, res) => {
     try {
+        await connectDB();
+
         const { email, password } = req.body;
 
         const user = await UserModel.findOne({ email });

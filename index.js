@@ -1,12 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+
 const AuthRouter = require('./Routes/AuthRouter');
 const ProductRouter = require('./Routes/ProductRouter');
 
 require('dotenv').config();
-require('./Models/db');
+const connectDB = require('./Models/db');
+
 const PORT = process.env.PORT || 8080;
 
 app.get('/ping',(req,res)=>{
