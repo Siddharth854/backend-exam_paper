@@ -18,6 +18,7 @@ app.use(cors())
 app.use('/auth', AuthRouter);
 app.use('/products',ProductRouter);
 
-app.listen(PORT, ()=>{
-    console.log(`Server is Running on ${PORT}`)
-})
+// app.listen(PORT, ()=>{
+//     console.log(`Server is Running on ${PORT}`)
+// })
+module.exports = app;
