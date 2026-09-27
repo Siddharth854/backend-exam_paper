@@ -79,6 +79,30 @@ const addStudent = async (req, res) => {
     }
 };
 
+const getStudents = async (req, res) => {
+    try {
+        await connectDB();
+
+        const students = await StudentModel
+            .find()
+            .populate('user', 'name email'); // tell mongo db that give me the student's name and email from the users collection.
+
+        res.status(200).json({
+            success: true,
+            students
+        });
+
+    } catch (err) {
+        console.error('GET STUDENTS ERROR:', err);
+
+        res.status(500).json({
+            message: 'Internal Server Error',
+            success: false
+        });
+    }
+};
+
 module.exports = {
-    addStudent
+    addStudent,
+    getStudents
 };
