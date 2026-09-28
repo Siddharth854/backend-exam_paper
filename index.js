@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -9,9 +10,7 @@ const StudentRouter = require('./Routes/StudentRouter');
 const TeacherRouter = require('./Routes/TeacherRouter');
 const CourseRouter = require('./Routes/CourseRouter');
 const ClassroomRouter = require('./Routes/ClassroomRouter');
-const ClassroomRouter = require('./Routes/ClassroomRouter');
 
-require('dotenv').config();
 const connectDB = require('./Models/db');
 
 const PORT = process.env.PORT || 8080;
@@ -28,9 +27,9 @@ app.use('/students', StudentRouter);
 app.use('/teachers', TeacherRouter);
 app.use('/courses', CourseRouter);
 app.use('/classrooms', ClassroomRouter);
-app.use('/classrooms', ClassroomRouter);
 
-// app.listen(PORT, ()=>{
-//     console.log(`Server is Running on ${PORT}`)
-// })
+app.listen(PORT, () => {
+    console.log(`Server is Running on ${PORT}`);
+});
+
 module.exports = app;
