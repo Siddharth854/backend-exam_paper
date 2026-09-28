@@ -7,6 +7,7 @@ const AuthRouter = require('./Routes/AuthRouter');
 const ProductRouter = require('./Routes/ProductRouter');
 const StudentRouter = require('./Routes/StudentRouter');
 const TeacherRouter = require('./Routes/TeacherRouter');
+const CourseRouter = require('./Routes/CourseRouter');
 
 require('dotenv').config();
 const connectDB = require('./Models/db');
@@ -23,6 +24,7 @@ app.use('/auth', AuthRouter);
 app.use('/products',ProductRouter);
 app.use('/students', StudentRouter);
 app.use('/teachers', TeacherRouter);
+app.use('/courses', CourseRouter);
 
 // app.listen(PORT, ()=>{
 //     console.log(`Server is Running on ${PORT}`)
