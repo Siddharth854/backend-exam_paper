@@ -8,6 +8,8 @@ const ProductRouter = require('./Routes/ProductRouter');
 const StudentRouter = require('./Routes/StudentRouter');
 const TeacherRouter = require('./Routes/TeacherRouter');
 const CourseRouter = require('./Routes/CourseRouter');
+const ClassroomRouter = require('./Routes/ClassroomRouter');
+const ClassroomRouter = require('./Routes/ClassroomRouter');
 
 require('dotenv').config();
 const connectDB = require('./Models/db');
@@ -25,6 +27,8 @@ app.use('/products',ProductRouter);
 app.use('/students', StudentRouter);
 app.use('/teachers', TeacherRouter);
 app.use('/courses', CourseRouter);
+app.use('/classrooms', ClassroomRouter);
+app.use('/classrooms', ClassroomRouter);
 
 // app.listen(PORT, ()=>{
 //     console.log(`Server is Running on ${PORT}`)
