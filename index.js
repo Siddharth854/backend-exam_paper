@@ -11,6 +11,7 @@ const TeacherRouter = require('./Routes/TeacherRouter');
 const CourseRouter = require('./Routes/CourseRouter');
 const ClassroomRouter = require('./Routes/ClassroomRouter');
 const ExamCycleRouter = require('./Routes/ExamCycleRouter');
+const ExamSessionRouter = require('./Routes/ExamSessionRouter');
 
 const connectDB = require('./Models/db');
 
@@ -29,6 +30,7 @@ app.use('/teachers', TeacherRouter);
 app.use('/courses', CourseRouter);
 app.use('/classrooms', ClassroomRouter);
 app.use('/exam-cycles', ExamCycleRouter);
+app.use('/exam-sessions', ExamSessionRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is Running on ${PORT}`);
